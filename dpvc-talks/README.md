@@ -1,7 +1,12 @@
 dpvc-talks
 ================
 
-A collection of code examples extracted from talks by @dpvc
+A collection of code examples extracted from slides by @dpvc.
+
+Sources: 
+
+* http://www.math.union.edu/~dpvc/talks/2013-01-11.jmm/examples.html
+* http://www.math.union.edu/~dpvc/talks/2013-01-12.jmm/examples.html
 
 This collection is licensed under Apache License v2.
 
