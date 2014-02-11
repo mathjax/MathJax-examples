@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<HEAD>
+<META http-equiv="X-UA-Compatible" content="IE=edge" />
+<TITLE>Equation Tags</TITLE>
+</HEAD>
+<BODY>
+<DIV CLASS="slideFrame">
+<SCRIPT SRC="js/sequence.js"></SCRIPT>
+<SCRIPT>var bdots = "../"</SCRIPT>
+<SCRIPT>
+var sequence = [
+  'l1', 'l2', 'l3', 'l4'
+];
+</SCRIPT>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<DIV CLASS="title">
+<HR><DIV>MathJax Equation Tags</DIV><HR>
+</DIV>
+<br>
+
+<CENTER>
+
+<p>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="70%">
+<TR><TD>
+
+<SPAN ID="l1" CLASS="hidden">Equations can get reference numbers using the 
+<code>\tag{}</code> macro, e.g:</SPAN>
+<p>
+<DIV ID="l2" CLASS="hidden">
+<CENTER><CODE>\[E=mc^2\tag{1}\]</CODE></CENTER>
+produces
+\[E=mc^2\tag{1}\]
+</DIV>
+<p>
+
+<SPAN ID="l3" CLASS="hidden">
+Note that the contents of <code>\tag{}</code> are in text mode, so if you 
+want to include math symbols, use <code>\tag{$...$}</code>.  E.g.,
+</SPAN>
+
+<DIV ID="l4" CLASS="hidden">
+<CENTER><CODE>\[E=mc^2\tag{$\bullet$}\]</CODE></CENTER>
+produces
+\[E=mc^2\tag{$\bullet$}\]
+</DIV>
+
+</TD></TR>
+</TABLE>
+
+</CENTER>
+
+
+<DIV CLASS="title">
+<HR><DIV>MathJax Equation References</DIV><HR>
+</DIV>
+<br>
+
+<CENTER>
+
+<p>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="70%">
+<TR><TD>
+
+<SPAN ID="l1" CLASS="hidden">Equations tags can be referenced using the 
+<code>\label{}</code> and <code>\ref{}</code> or <code>\eqref{}</code> 
+macros.</SPAN>
+<p>
+<DIV ID="l2" CLASS="hidden">
+For example,
+<BLOCKQUOTE>
+<PRE>
+The famous equation (\ref{Einstein}) by Einstein, ...
+\[E=mc^2\label{Einstein}\tag{1}\]
+</PRE>
+</BLOCKQUOTE>
+</DIV>
+<DIV ID="l3" CLASS="hidden">
+produces
+<BLOCKQUOTE>
+     The famous equation (\ref{Einstein}) by Einstein, ...
+</BLOCKQUOTE>
+
+     \[E=mc^2\label{Einstein}\tag{1}\]
+</DIV>
+
+</TD></TR>
+</TABLE>
+
+</CENTER>
+
+
+<DIV CLASS="title">
+<HR><DIV>MathJax Equation Numbering</DIV><HR>
+</DIV>
+<br>
+
+<CENTER>
+
+<p>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="70%">
+<TR><TD>
+
+<SPAN ID="l1" CLASS="hidden">Displayed equations can be numbered 
+automatically.</SPAN>
+
+<UL>
+<LI ID="l1a" CLASS="hidden">Numbering is off by default</LI>
+<LI ID="l1b" CLASS="hidden">Numbering can follow AMS <SPAN STYLE="font-family:serif">L<SPAN STYLE="font-size:70%; vertical-align:.5ex; margin-left:-.8ex; margin-right:-.4ex">A</SPAN>T<SPAN STYLE="vertical-align:-.4ex; margin-left:-.15ex; margin-right:-.15ex">E</SPAN>X</SPAN> conventions<BR>
+(starred and unstarred environments)</LI>
+<LI ID="l1c" CLASS="hidden">Every displayed equation can be numbered</LI>
+</UL>
+<p>
+
+<DIV ID="l2" CLASS="hidden">
+For example,
+<BLOCKQUOTE>
+<PRE>
+MathJax.Hub.Config({
+  TeX: {equationNumbers: {autoNumber: "AMS"}}
+});
+</PRE>
+</BLOCKQUOTE>
+</DIV>
+<p>
+
+<DIV ID="l3" CLASS="hidden">
+Other <CODE>autoNumber</CODE> values are <CODE>"none"</CODE> or <CODE>"all"</CODE>.
+</DIV>
+
+</TD></TR>
+</TABLE>
+
+</CENTER>
+</BODY>
+</HTML>
