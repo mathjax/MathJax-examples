@@ -24,7 +24,7 @@ MathJax.Hub.Config({
 </style>
 
 <div class="title">
-<HR><div>MathJax Equation Breaking Examples</div><HR>
+<hr><div>MathJax Equation Breaking Examples</div><hr>
 </div>
 
 <p>
@@ -65,6 +65,52 @@ MathJax.Hub.Config({
 </div>
 
 <!-- *End-Document-Body -->
+
+
+<DIV CLASS="title">
+<HR><DIV>Avoiding Bad Line Breaks</DIV><HR>
+</DIV>
+
+<p>
+<DIV STYLE="width:70%; margin:0 auto">
+Since MathJax uses nesting level as it determines breakpoints, using extra 
+braces can help prevent bad line breaks.
+</DIV>
+
+<CENTER>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+<TR><TD>
+<PRE>
+\cos(\theta+\phi)
+   = \cos(\theta)\cos(\phi)
+   - \sin(\theta)\sin(\phi)
+</PRE>
+</BLOCKQUOTE>
+</TD><TD WIDTH="70"></TD><TD>
+<DIV CLASS="box" STYLE="width:9em">
+\[
+  \cos(\theta+\phi) = \cos(\theta)\cos(\phi) - \sin(\theta)\sin(\phi)
+\]
+</DIV>
+<TD></TR>
+
+<TR><TD>
+<PRE>
+\cos(\theta+\phi)
+   = {\cos(\theta)}\cos(\phi)
+   - \sin(\theta)\sin(\phi)
+</PRE>
+</BLOCKQUOTE>
+</TD><TD WIDTH="70"></TD><TD>
+<DIV CLASS="box" STYLE="width:9em">
+\[
+  \cos(\theta+\phi) = {\cos(\theta)}\cos(\phi) - \sin(\theta)\sin(\phi)
+\]
+</DIV>
+<TD></TR>
+</TABLE>
+
+
 
 </BODY>
 </HTML>
