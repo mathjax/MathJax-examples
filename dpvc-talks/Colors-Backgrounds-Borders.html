@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<HEAD>
+<META http-equiv="X-UA-Compatible" content="IE=edge" />
+<TITLE>Equation Tags</TITLE>
+</HEAD>
+<BODY>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<DIV CLASS="title">
+<HR><DIV>Colors, Backgrounds, and Borders</DIV><HR>
+</DIV>
+<br>
+
+
+<CENTER>
+
+<p>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="70%">
+<TR><TD>
+
+<UL>
+<LI ID="l1" CLASS="hidden">Expressions can be colored 
+using the <CODE>\color{}</CODE> macro.</LI>
+
+<LI ID="l2" CLASS="hidden" style="padding:0">
+For example
+<CENTER style="margin:.7em 0; font-size:80%">
+<CODE>\color{red}{R} + \color{green}{G} + \color{blue}{B}</CODE>
+</CENTER>
+<DIV ID="l3" CLASS="hidden">
+produces
+\[\color{red}{R} + \color{green}{G} + \color{blue}{B}\]
+</DIV>
+</LI>
+<p>
+
+<LI ID="l4" CLASS="hidden">A more <SPAN STYLE="font-family:serif">L<SPAN STYLE="font-size:70%; vertical-align:.5ex; margin-left:-.8ex; margin-right:-.4ex">A</SPAN>T<SPAN STYLE="vertical-align:-.4ex; margin-left:-.15ex; margin-right:-.15ex">E</SPAN>X</SPAN>-compatible <code>\color</code> 
+command can be obtained from the MathJax <code>color</code> extension.
+<p>
+(See the <A HREF="http://docs.mathjax.org/en/latest/tex.html#color">MathJax 
+Documentation</A> for details.)</LI>
+
+</UL>
+
+</TD></TR>
+</TABLE>
+
+</CENTER>
+
+
+
+<CENTER>
+
+<p>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="70%">
+<TR><TD>
+
+<UL>
+<LI ID="l1" CLASS="hidden">Background colors and borders can be added
+using the <CODE>\bbox{}</CODE> macro.</LI>
+
+<LI ID="l2" CLASS="hidden" style="padding:0">
+For example
+<BLOCKQUOTE style="margin-top:.7em; margin-bottom:.7em; font-size:80%">
+<PRE>
+\bbox[#FD9,border:2px solid purple,10px]{
+  \bbox[red]{r} +
+  \bbox[green,5px]{\color{yellow}{g}} +
+  \bbox[border:2px dashed blue,3px]{b}
+}
+</PRE>
+</BLOCKQUOTE>
+<DIV ID="l3" CLASS="hidden">
+produces
+\[
+\bbox[#FD9,border:2px solid purple,10px]{
+  \bbox[red]{r} +
+  \bbox[green,5px]{\color{yellow}{g}} +
+  \bbox[border:2px dashed blue,3px]{b}
+}
+\]
+</DIV>
+</LI>
+<p>
+
+<LI ID="l4" CLASS="hidden">Background color, padding amount, and border 
+specifications can be in any order.</LI>
+
+</UL>
+
+</TD></TR>
+</TABLE>
+
+</CENTER>
+
+
+
+
+<CENTER>
+
+<p>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="70%">
+<TR><TD>
+
+<DIV ID="l1" CLASS="hidden">Expressions can be "enclosed" in various ways 
+via the <CODE>\enclose{}</CODE> macro.</DIV>
+<p>
+<DIV ID="l2" CLASS="hidden">
+For example
+<BLOCKQUOTE style="margin-top:.7em; margin-bottom:.7em; font-size:80%">
+<PRE>
+\enclose{box}{
+  \enclose{circle}{\bbox[5px]{x+y}} +
+  \enclose{circle}{\enclose{circle}{z}} -
+  \enclose{updiagonalstrike,downdiagonalstrike}{w}
+}
+</PRE>
+</BLOCKQUOTE>
+</DIV>
+<DIV ID="l3" CLASS="hidden">
+produces
+\[
+\enclose{box}{
+  \enclose{circle}{\bbox[5px]{x+y}} +
+  \enclose{circle}{\enclose{circle}{z}} -
+  \enclose{updiagonalstrike,downdiagonalstrike}{w}
+}
+\]
+</DIV>
+
+</TD></TR>
+</TABLE>
+
+</CENTER>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {extensions: ["enclose.js"]}
+});
+</script>
+
+
+<CENTER>
+<BR>
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="70%">
+<TR><TD>
+
+<DIV ID="l1" CLASS="hidden">You can combine <code>\color{}</code> with 
+<code>\enclose{}</code>.</DIV>
+<p>
+<DIV ID="l2" CLASS="hidden">
+For example
+<BLOCKQUOTE style="margin-top:.7em; margin-bottom:.7em; font-size:80%">
+<PRE>
+\color{red}{
+  \enclose{updiagonalstrike,downdiagonalstrike}{
+    \color{black}{x+y}
+  }
+}
+</PRE>
+</BLOCKQUOTE>
+</DIV>
+<DIV ID="l3" CLASS="hidden">
+produces
+\[
+\color{red}{
+  \enclose{updiagonalstrike,downdiagonalstrike}{
+    \color{black}{x+y}
+  }
+}
+\]
+</DIV>
+
+</TD></TR>
+</TABLE>
+
+</CENTER>
+
+<CENTER>
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="70%">
+<TR><TD>
+
+<UL>
+<LI ID="l1" CLASS="hidden">The possible enclosings are:
+<div ID="l1a" CLASS="hidden" style="margin-left:1em; font-size:80%; margin-top:.2em">
+box, roundedbox, circle, left, right, top, bottom, verticalstrike, 
+horizontalstrike, updiagonalstrike, downdiagonalstrike, actuarial, 
+longdiv, radical, and madrawb.
+</div>
+</LI>
+
+<LI ID="l2" CLASS="hidden">
+The <code>\enclose{}</code> macro is defined in an extension that
+you must load explicitly if you need it.</LI>
+
+<LI ID="l3" CLASS="hidden">
+Include the following in your configuration:
+<BLOCKQUOTE>
+<PRE>
+MathJax.Hub.Config({
+  TeX: {extensions: ["enclose.js"]}
+});
+</PRE>
+</BLOCKQUOTE>
+</LI>
+
+<LI ID="l4" CLASS="hidden">
+See the <A HREF="http://docs.mathjax.org/en/latest/tex.html#enclose">MathJax Documentation</A> for details.
+</LI>
+
+</UL>
+
+</TD></TR>
+</TABLE>
+
+</CENTER>
+
+</BODY>
+</HTML>
