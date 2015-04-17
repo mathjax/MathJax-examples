@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MathJax Test Page interactive equations</title>
+<!-- Copyright (c) 2009-2014 The MathJax Consortium -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+	messageStyle: "none",
+    jax: ["input/TeX","output/HTML-CSS"],
+    "HTML-CSS": {
+      availableFonts:[],
+      styles: {".MathJax_Preview": {visibility: "hidden"}}
+    }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+
+<style>
+h1 {text-align:center}
+h2 {
+  font-weight: bold;
+  background-color: #DDDDDD;
+  padding: .2em .5em;
+  margin-top: 1.5em;
+  border-top: 3px solid #666666;
+  border-bottom: 2px solid #999999;
+}
+</style>
+</head>
+<body>
+
+<noscript>
+<div style="color:#CC0000; text-align:center">
+<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+requires JavaScript to process the mathematics on this page.<br />
+If your browser supports JavaScript, be sure it is enabled.</b>
+</div>
+<hr>
+</noscript>
+
+<h1>Interactive sample MathJax Equations</h1>
+
+    <div style = "margin-left: 100px;">	
+
+		<div style="position: relative;">
+
+			<div id = "myDiv" style="margin-top: 50px; font-size: 200%; position: absolute; z-index: 100;" >
+
+				Here is the formula
+
+			</div>	
+
+		</div>
+
+	</div>	
+
+</body>
+</html>
+
+ <script>
+
+function random(min_random, max_random) {
+
+	var range = max_random - min_random + 1;
+	return Math.floor(Math.random()*range) + min_random;
+
+}
+
+function parseIntPlus( st ) {
+// "-4" -> -4, "+5" -> 5
+	var str = st;
+	if ( str.charAt( 0 ) == "+" ) { str = str.substr(1); }
+	if ( str.charAt( 0 ) == "−" ) { str = "-" + str.substr(1); }
+	var value = parseInt( str );
+	return( value );
+}
+
+function StringPlus( x, Flag ) {
+// -4 -> "-4", 5 -> "+5"
+	var flag = ( Flag !== undefined ) ? Flag : false;
+	var value = String( x );
+	if ( x >= 0 && !flag ) { value = "+" + value; }
+	return value;
+}
+	
+var	a = random(-9,0),
+	b = random(0,9);	
+
+function formulaCodeGeneric( a, b ) {
+
+	var valueInt = b*b*b-a*a*a;
+	var formulaCode = "\\[  \\int_{ \\cssId{a}{\\class{dynamic}{" + StringPlus( a, true )
+		+ "}}}^{ \\cssId{b}{\\class{dynamic}{" + StringPlus( b, true )
+		+ "}}} x^2 dx = " + String( valueInt ) + " \\]";
+	return formulaCode;
+ 
+}
+
+document.getElementById("myDiv").innerHTML = formulaCodeGeneric( a, b );
+
+MathJax.Hub.Queue( function () { addEvents(); } );
+
+function addEvents() {
+
+var elems = document.getElementsByClassName("dynamic"), newInput;
+
+for (var i=0; i<elems.length; i++) {
+	var el = elems[i];
+	el.addEventListener('mouseover', function() { 
+			this.style.cursor = 'pointer';
+			this.style.backgroundColor = "#F6CEF5";
+		}, false);
+	el.addEventListener('mouseout', function() { 
+			this.style.cursor = 'auto';
+			this.style.backgroundColor = "#FFFFFF";
+		}, false);		
+}
+
+
+for (var i=0; i<elems.length; i++) {
+    var el = elems[i];
+    el.addEventListener("click", function() {
+      var  inputs = this.getElementsByTagName("input");
+        if (inputs.length > 0) return;
+        if (!newInput) {
+            newInput = document.createElement("input");
+            newInput.type = "text";
+          //  newInput.maxLength = 2;
+            newInput.setAttribute("size", 1);
+			newInput.style.fontSize = "18px";
+			newInput.style.color = "blue";
+			newInput.style.width = "24px";
+            newInput.addEventListener("blur", function() {
+
+				newInput.value = newInput.value.replace("-","−");
+				newInput.parentNode.innerHTML = newInput.value;
+
+				a = parseIntPlus( document.getElementById("a").innerText );
+				b = parseIntPlus( document.getElementById("b").innerText );
+
+				document.getElementById("myDiv").innerHTML = formulaCodeGeneric( a, b );
+
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("myDiv")], function () { addEvents(); });
+
+            }, false)
+        }
+        newInput.value = this.innerText;
+        this.innerHTML = "";
+        this.appendChild(newInput);
+        newInput.focus();
+        newInput.select()
+		}.bind(el), false);
+	};
+
+}
+
+ </script>
